@@ -4,13 +4,13 @@ import "./style.css";
 import Child from "Child";
 
 export default function App() {
+  const [count, setCount] = useState(1);
   return (
     <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-      <Child a="3" b="5" c="7" d="9">
+      <button onClick={() => setCount(count => count + 1)}>Add Child</button>
+      {Array(count).fill(null).map((_, index) => <Child key={index} a="3" b="5" c="7" d="9">
         <b>Child HTML of Component</b>
-      </Child>
+      </Child>)}
     </div>
   );
 }
